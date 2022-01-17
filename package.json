@@ -1,0 +1,30 @@
+{
+  "name": "mclip",
+  "version": "0.1.0",
+  "description": "Minimal cli args parser.",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava",
+    "release": "release-it"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kajyr/mclip.git"
+  },
+  "keywords": [
+    "cli",
+    "parsing",
+    "options"
+  ],
+  "author": "Carlo <carlo.panzi@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kajyr/mclip/issues"
+  },
+  "homepage": "https://github.com/kajyr/mclip#readme",
+  "devDependencies": {
+    "@release-it/conventional-changelog": "^4.1.0",
+    "ava": "^4.0.1",
+    "release-it": "^14.12.3"
+  }
+}
