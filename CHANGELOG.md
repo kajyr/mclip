@@ -1,3 +1,10 @@
+# [0.3.0](https://github.com/kajyr/mclip/compare/0.2.1...0.3.0) (2022-01-21)
+
+
+### Features
+
+* default parameters and usage informations ([7e99750](https://github.com/kajyr/mclip/commit/7e9975023fe7a99f0b24d8fd57bc9b7cd76867aa))
+
 ## [0.2.1](https://github.com/kajyr/mclip/compare/0.2.0...0.2.1) (2022-01-21)
 
 
