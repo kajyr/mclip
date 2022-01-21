@@ -24,19 +24,15 @@ It's possible to define a default value for an option in case it's not specified
 ```
 const mclip = require("mclip");
 
-const options = mclip(process.argv, {foo: 'value'});
+const options = mclip(process.argv, {
+  foo: { default: "banana", description: "Sets the foo", alias: "f" },
+  boo: { description: "This option does something" },
+  tem: { alias: "t" },
+});
+
 
 ```
 
 **printing usage information**
 
-It's possible to define guidelines about the parameters
-
-```
-const mclip = require("mclip");
-
-const options = mclip(process.argv, {foo: 'value'}, {foo: 'Sets the foo value'});
-
-```
-
-If the script is called with `--help` it will print the usage informations and exit.
+It's possible to define descriptions about the expected parameters; if the script is called with `--help` it will print the usage informations and exit.

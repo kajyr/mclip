@@ -2,10 +2,10 @@
 
 const mclip = require("./");
 
-const options = mclip(
-  process.argv,
-  { foo: "banana" },
-  { foo: "Sets the foo", o: "Output file" }
-);
+const options = mclip(process.argv, {
+  foo: { default: "banana", description: "Sets the foo", alias: "f" },
+  boo: { description: "This option does something" },
+  tem: { alias: "t" },
+});
 
 console.log(options);

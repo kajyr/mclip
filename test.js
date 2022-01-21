@@ -34,7 +34,10 @@ test("No arguments", (t) => {
 test("Default values", (t) => {
   const args = ["node", "my-cli-script", "--option=4"];
 
-  const defaults = { foo: 3, option: "value" };
+  const config = {
+    foo: { default: 3 },
+    option: { default: "value" },
+  };
 
   const expected = {
     list: [],
@@ -42,5 +45,20 @@ test("Default values", (t) => {
     foo: 3,
   };
 
-  t.deepEqual(mclip(args, defaults), expected);
+  t.deepEqual(mclip(args, config), expected);
+});
+
+test("Aliases", (t) => {
+  const args = ["node", "my-cli-script", "--o=value"];
+
+  const config = {
+    option: { alias: "o" },
+  };
+
+  const expected = {
+    list: [],
+    option: "value",
+  };
+
+  t.deepEqual(mclip(args, config), expected);
 });
