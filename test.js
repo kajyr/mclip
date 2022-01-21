@@ -3,8 +3,8 @@ const mclip = require("./");
 
 test("Basics", (t) => {
   const args = [
-    "/Users/demo/.nvm/versions/node/v16.13.0/bin/node",
-    "/Users/demo/.nvm/versions/node/v16.13.0/bin/my-cli-script",
+    "node",
+    "my-cli-script",
     "file",
     "-vf",
     "--option=4",
@@ -29,4 +29,18 @@ test("No arguments", (t) => {
   const expected = { list: [] };
 
   t.deepEqual(mclip(args), expected);
+});
+
+test("Default values", (t) => {
+  const args = ["node", "my-cli-script", "--option=4"];
+
+  const defaults = { foo: 3, option: "value" };
+
+  const expected = {
+    list: [],
+    option: "4",
+    foo: 3,
+  };
+
+  t.deepEqual(mclip(args, defaults), expected);
 });
