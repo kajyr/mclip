@@ -2,7 +2,15 @@ const test = require("ava");
 const mclip = require("./");
 
 test("Basics", (t) => {
-  const args = ["file", "-vf", "--option=4", "file2", "-p"];
+  const args = [
+    "/Users/demo/.nvm/versions/node/v16.13.0/bin/node",
+    "/Users/demo/.nvm/versions/node/v16.13.0/bin/my-cli-script",
+    "file",
+    "-vf",
+    "--option=4",
+    "file2",
+    "-p",
+  ];
 
   const expected = {
     f: true,

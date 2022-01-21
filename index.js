@@ -1,4 +1,8 @@
-function clip(args) {
+function clip(argv) {
+  if (!argv) {
+    throw new Error("Missing argument: process.argv");
+  }
+  const args = argv.slice(2);
   const options = { list: [] };
 
   for (const str of args) {
