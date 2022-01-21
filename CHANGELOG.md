@@ -1,3 +1,10 @@
+## [0.3.1](https://github.com/kajyr/mclip/compare/0.3.0...0.3.1) (2022-01-21)
+
+
+### Bug Fixes
+
+* Improved configurations ([6f8bad9](https://github.com/kajyr/mclip/commit/6f8bad9445a9bdc5da45de9f15bd460d4034a957))
+
 # [0.3.0](https://github.com/kajyr/mclip/compare/0.2.1...0.3.0) (2022-01-21)
 
 
