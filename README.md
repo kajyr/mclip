@@ -1,5 +1,7 @@
 # mclip
 
+[![Build Status](https://github.com/kajyr/mclip/workflows/test/badge.svg)](https://github.com/kajyr/mclip/actions)
+
 Minimal cli args parser.
 
 ## Installation
