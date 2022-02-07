@@ -41,8 +41,8 @@ function printHelp(scriptName, config) {
   const opts = [];
   for (const [key, value] of entries) {
     let flags = renderParam(key);
-    if (value.alias) {
-      flags = `${flags}, ${renderParam(value.alias)}`;
+    if (value.short) {
+      flags = `${flags}, ${renderParam(value.short)}`;
     }
     let description = value.description || "";
     let defaults = value.default ? `Default: ${value.default}` : "";

@@ -1,7 +1,7 @@
 const test = require("ava");
-const mclip = require("./");
+const mclip = require("../");
 
-test("Basics", (t) => {
+test.only("Basics", (t) => {
   const args = [
     "node",
     "my-cli-script",
@@ -43,21 +43,6 @@ test("Default values", (t) => {
     list: [],
     option: "4",
     foo: 3,
-  };
-
-  t.deepEqual(mclip(args, config), expected);
-});
-
-test("Aliases", (t) => {
-  const args = ["node", "my-cli-script", "--o=value"];
-
-  const config = {
-    option: { alias: "o" },
-  };
-
-  const expected = {
-    list: [],
-    option: "value",
   };
 
   t.deepEqual(mclip(args, config), expected);

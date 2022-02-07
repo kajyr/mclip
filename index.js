@@ -7,36 +7,50 @@ function clip(argv, config = {}) {
 
   const defaults = {};
   const aliases = {};
+
   for (const [key, value] of Object.entries(config)) {
     if (value.default) {
       defaults[key] = value.default;
     }
-    if (value.alias) {
-      aliases[value.alias] = key;
+    if (value.short) {
+      aliases[value.short] = key;
     }
   }
 
   const args = argv.slice(2);
   const options = { list: [], ...defaults };
 
+  // Finally we can parse the args
   for (const str of args) {
+    // If no dash, it's a positional argument
+    if (!str.startsWith("-")) {
+      options.list.push(str);
+      continue;
+    }
+
+    let [keys, value] = str.split("=");
+    value = value || true;
+
+    // Double dash: it's a long parameter
     if (str.startsWith("--")) {
-      const [k, value] = str.slice(2).split("=");
-      const key = aliases[k] || k;
+      const key = keys.slice(2);
       options[key] = value || true;
       continue;
     }
 
-    if (str.startsWith("-")) {
-      const keys = str.slice(1).split("");
-      for (const k of keys) {
-        const key = aliases[k] || k;
+    // Single dash: it's a short parameter
+    keys = keys.slice(1).split("");
+
+    for (let i = 0; i < keys.length; i++) {
+      const key = aliases[keys[i]] || keys[i];
+
+      // if we have a value, it's only for the last key
+      if (i === keys.length - 1) {
+        options[key] = value;
+      } else {
         options[key] = true;
       }
-      continue;
     }
-
-    options.list.push(str);
   }
 
   if (options.help) {
