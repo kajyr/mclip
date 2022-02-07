@@ -1,3 +1,10 @@
+## [0.3.2](https://github.com/kajyr/mclip/compare/0.3.1...0.3.2) (2022-02-07)
+
+
+### Bug Fixes
+
+* short options or aliases can have a value ([95cdcd5](https://github.com/kajyr/mclip/commit/95cdcd5e3e91c64d36ab4fcf18fff51fd9b9a791))
+
 ## [0.3.1](https://github.com/kajyr/mclip/compare/0.3.0...0.3.1) (2022-01-21)
 
 
