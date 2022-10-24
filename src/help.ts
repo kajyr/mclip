@@ -1,9 +1,12 @@
-function fillSpace(word, length) {
+import { Config } from "./types";
+
+function fillSpace(word: string, length: number) {
   const spaces = " ".repeat(length - word.length);
   return `${word}${spaces}`;
 }
 
-function printColumns(grid) {
+type Opts = readonly [string, string, string];
+function printColumns(grid: readonly Opts[]) {
   const columnWidths = grid.reduce((acc, row) => {
     for (let i = 0; i < row.length; i++) {
       acc[i] = Math.max(acc[i], row[i].length);
@@ -20,17 +23,17 @@ function printColumns(grid) {
   }
 }
 
-function renderParam(key) {
+function renderParam(key: string) {
   const dashes = key.length > 1 ? "--" : "-";
   return `${dashes}${key}`;
 }
 
-function getScriptName(str) {
+function getScriptName(str: string) {
   const a = str.split("/");
   return a[a.length - 1];
 }
 
-function printHelp(scriptName, config) {
+export function printHelp(scriptName: string, config: Config) {
   console.log(`Usage: ${getScriptName(scriptName)} [options] [arguments]`);
   const entries = Object.entries(config);
   if (entries.length === 0) {
@@ -47,9 +50,7 @@ function printHelp(scriptName, config) {
     let description = value.description || "";
     let defaults = value.default ? `Default: ${value.default}` : "";
 
-    opts.push([flags, description, defaults]);
+    opts.push([flags, description, defaults] as const);
   }
   printColumns(opts);
 }
-
-module.exports = printHelp;

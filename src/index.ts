@@ -1,16 +1,17 @@
-const printHelp = require("./help");
+import { Config } from "./types";
+import { printHelp } from "./help";
 
-function clip(argv, config = {}) {
+function clip(argv: string[], config: Config = {}) {
   if (!argv) {
     throw new Error("Missing argument: process.argv");
   }
 
-  const defaults = {};
-  const aliases = {};
+  const options: Record<string, string | boolean | string[]> = {};
+  const aliases: Record<string, string> = {};
 
   for (const [key, value] of Object.entries(config)) {
     if (value.default) {
-      defaults[key] = value.default;
+      options[key] = value.default;
     }
     if (value.short) {
       aliases[value.short] = key;
@@ -18,28 +19,30 @@ function clip(argv, config = {}) {
   }
 
   const args = argv.slice(2);
-  const options = { list: [], ...defaults };
+  const list: string[] = [];
 
   // Finally we can parse the args
   for (const str of args) {
     // If no dash, it's a positional argument
     if (!str.startsWith("-")) {
-      options.list.push(str);
+      list.push(str);
       continue;
     }
 
-    let [keys, value] = str.split("=");
-    value = value || true;
+    // k can be a single key like --options
+    // or a group of short like -Pavuz
+    let [k, v] = str.split("=");
+    const value = v || true;
 
     // Double dash: it's a long parameter
     if (str.startsWith("--")) {
-      const key = keys.slice(2);
-      options[key] = value || true;
+      const key = k.slice(2);
+      options[key] = value;
       continue;
     }
 
-    // Single dash: it's a short parameter
-    keys = keys.slice(1).split("");
+    // Single dash: it's a group of short parameters
+    const keys = k.slice(1).split("");
 
     for (let i = 0; i < keys.length; i++) {
       const key = aliases[keys[i]] || keys[i];
@@ -53,6 +56,8 @@ function clip(argv, config = {}) {
     }
   }
 
+  options.list = list;
+
   if (options.help) {
     printHelp(argv[1], config);
     process.exit();
@@ -61,4 +66,4 @@ function clip(argv, config = {}) {
   return options;
 }
 
-module.exports = clip;
+export default clip;
