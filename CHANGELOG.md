@@ -1,3 +1,5 @@
+# [1.0.0](https://github.com/kajyr/mclip/compare/0.3.2...1.0.0) (2022-10-24)
+
 ## [0.3.2](https://github.com/kajyr/mclip/compare/0.3.1...0.3.2) (2022-02-07)
 
 
