@@ -1,4 +1,4 @@
-const mclip = require("mclip");
+const mclip = require("./");
 
 describe("Basics", () => {
   test("Args parsing", () => {

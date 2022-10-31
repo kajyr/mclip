@@ -9,5 +9,14 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "monthly"
-      reviewers:
+      assignees:
         - "kajyr"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+     assignees:
+      - 'kajyr'
+    open-pull-requests-limit: 3
