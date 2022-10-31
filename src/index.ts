@@ -66,4 +66,4 @@ function clip(argv: string[], config: Config = {}) {
   return options;
 }
 
-export default clip;
+export = clip;
