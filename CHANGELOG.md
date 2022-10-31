@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/kajyr/mclip/compare/1.0.0...1.0.1) (2022-10-31)
+
+
+### Bug Fixes
+
+* correct export syntax ([c9cd1bf](https://github.com/kajyr/mclip/commit/c9cd1bf740c03b04ab59881c67c25c219a7b17a1))
+
 # [1.0.0](https://github.com/kajyr/mclip/compare/0.3.2...1.0.0) (2022-10-24)
 
 ## [0.3.2](https://github.com/kajyr/mclip/compare/0.3.1...0.3.2) (2022-02-07)
