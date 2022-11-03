@@ -1,3 +1,16 @@
+# [1.1.0](https://github.com/kajyr/mclip/compare/1.0.1...1.1.0) (2022-11-03)
+
+
+### Bug Fixes
+
+* import in tests ([84cbfed](https://github.com/kajyr/mclip/commit/84cbfedd41a51eb4fd91dd62f02c753e6195b74c))
+* node tests ([827c09c](https://github.com/kajyr/mclip/commit/827c09c0d0502c14d869224e8ed1a6a170f5931b))
+
+
+### Features
+
+* true and false in arguments are treated as booleans ([1dc2b24](https://github.com/kajyr/mclip/commit/1dc2b244d70d666a91cf1266194fb20853728641))
+
 ## [1.0.1](https://github.com/kajyr/mclip/compare/1.0.0...1.0.1) (2022-10-31)
 
 
