@@ -1,6 +1,24 @@
 import { Config } from "./types";
 import { printHelp } from "./help";
 
+/**
+ * Normalizes the value received. Undefined is true,
+ * "true" and "false" as strings are converted to booleans
+ */
+function toValue(value: string | null | undefined) {
+  if (value == null) {
+    // Missing value, we treat as a true
+    return true;
+  }
+  if (value === "true") {
+    return true;
+  }
+  if (value === "false") {
+    return false;
+  }
+  return value;
+}
+
 function clip(argv: string[], config: Config = {}) {
   if (!argv) {
     throw new Error("Missing argument: process.argv");
@@ -32,7 +50,7 @@ function clip(argv: string[], config: Config = {}) {
     // k can be a single key like --options
     // or a group of short like -Pavuz
     let [k, v] = str.split("=");
-    const value = v || true;
+    const value = toValue(v);
 
     // Double dash: it's a long parameter
     if (str.startsWith("--")) {

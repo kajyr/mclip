@@ -58,8 +58,29 @@ describe("Basics", () => {
     const something: unknown = null;
 
     expect(() => {
-      const options = mclip(something as string[]);
+      mclip(something as string[]);
     }).toThrow();
+  });
+
+  test("Long labels with boolean", () => {
+    const args = [
+      "node",
+      "my-cli-script",
+      "--foo",
+      "--bar=false",
+      "--bum=true",
+    ];
+
+    const expected = {
+      foo: true,
+      bar: false,
+      bum: true,
+      list: [],
+    };
+
+    const options = mclip(args);
+
+    expect(options).toEqual(expected);
   });
 });
 
