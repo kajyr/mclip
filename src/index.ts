@@ -19,7 +19,7 @@ function toValue(value: string | null | undefined) {
   return value;
 }
 
-function clip(argv: string[], config: Config = {}) {
+function mclip(argv: string[], config: Config = {}) {
   if (!argv) {
     throw new Error("Missing argument: process.argv");
   }
@@ -84,4 +84,4 @@ function clip(argv: string[], config: Config = {}) {
   return options;
 }
 
-export = clip;
+export { mclip };
