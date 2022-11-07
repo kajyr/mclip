@@ -1,6 +1,6 @@
 {
   "name": "mclip",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Minimal cli args parser.",
   "main": "build/index.js",
   "types": "build/index.d.ts",

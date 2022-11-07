@@ -1,3 +1,16 @@
+# [2.0.0](https://github.com/kajyr/mclip/compare/1.1.0...2.0.0) (2022-11-07)
+
+
+### Features
+
+* Moved to named exports ([42142a6](https://github.com/kajyr/mclip/commit/42142a677fc3c8a33ae75f3a96e6d41f7726117b))
+
+
+### BREAKING CHANGES
+
+* default exports is breaking es/commonjs interop too
+much for my liking.
+
 # [1.1.0](https://github.com/kajyr/mclip/compare/1.0.1...1.1.0) (2022-11-03)
 
 
