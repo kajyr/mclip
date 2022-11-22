@@ -1,4 +1,4 @@
-import { Config } from "./types";
+import { Config, Return } from "./types";
 import { printHelp } from "./help";
 
 /**
@@ -19,20 +19,23 @@ function toValue(value: string | null | undefined) {
   return value;
 }
 
-function mclip(argv: string[], config: Config = {}) {
+function mclip<C extends Config>(argv: string[], config?: C): Return<C> {
   if (!argv) {
     throw new Error("Missing argument: process.argv");
   }
 
+  // This is a temporary type to compose the full object
   const options: Record<string, string | boolean | string[]> = {};
   const aliases: Record<string, string> = {};
 
-  for (const [key, value] of Object.entries(config)) {
-    if (value.default) {
-      options[key] = value.default;
-    }
-    if (value.short) {
-      aliases[value.short] = key;
+  if (config) {
+    for (const [key, value] of Object.entries(config)) {
+      if (value.default) {
+        options[key] = value.default;
+      }
+      if (value.short) {
+        aliases[value.short] = key;
+      }
     }
   }
 
@@ -81,7 +84,13 @@ function mclip(argv: string[], config: Config = {}) {
     process.exit();
   }
 
-  return options;
+  // This cast is fishy, I am open to suggestions
+  return options as Return<C>;
 }
+
+const p = mclip([], { verbose: { short: "v" } });
+
+p.list;
+p.verbose;
 
 export { mclip };

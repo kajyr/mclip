@@ -33,9 +33,9 @@ function getScriptName(str: string) {
   return a[a.length - 1];
 }
 
-export function printHelp(scriptName: string, config: Config) {
+export function printHelp(scriptName: string, config?: Config) {
   console.log(`Usage: ${getScriptName(scriptName)} [options] [arguments]`);
-  const entries = Object.entries(config);
+  const entries = config ? Object.entries(config) : [];
   if (entries.length === 0) {
     return;
   }
