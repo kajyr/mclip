@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/kajyr/mclip/compare/2.0.0...2.1.0) (2022-11-22)
+
+
+### Features
+
+* Initial typing of the returned options ([ec2ae60](https://github.com/kajyr/mclip/commit/ec2ae603aa6bc989d1057602a44fc8e3dd17e2f1))
+
 # [2.0.0](https://github.com/kajyr/mclip/compare/1.1.0...2.0.0) (2022-11-07)
 
 
