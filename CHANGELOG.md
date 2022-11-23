@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/kajyr/mclip/compare/2.1.0...2.1.1) (2022-11-23)
+
+
+### Bug Fixes
+
+* added type for the help flag ([f44495c](https://github.com/kajyr/mclip/commit/f44495cefe929d0c7c4c9a62ad1fa306c8a6364f))
+
 # [2.1.0](https://github.com/kajyr/mclip/compare/2.0.0...2.1.0) (2022-11-22)
 
 
