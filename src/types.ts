@@ -11,6 +11,10 @@ type ExtractType<Type> = Type extends boolean
   ? string
   : string | boolean | undefined;
 
+// This helper type helps to "explode" the returned type,
+// to properly show the props, instead of the Generic type
+type Id<T> = T extends object ? {} & { [P in keyof T]: Id<T[P]> } : T;
+
 /**
  * Return type for a given Config
  *
@@ -20,6 +24,8 @@ type ExtractType<Type> = Type extends boolean
  * If the default is set, the key will always be there, and we expect it to have the
  * same type of the default provided
  */
-export type Return<T extends Config> = {
-  [K in keyof T]: ExtractType<T[K]["default"]>;
-} & { list: string[]; help?: boolean };
+export type Return<T extends Config> = Id<
+  {
+    [K in keyof T]: ExtractType<T[K]["default"]>;
+  } & { list: string[]; help?: boolean }
+>;
