@@ -21,5 +21,5 @@ type ExtractType<Type> = Type extends boolean
  * same type of the default provided
  */
 export type Return<T extends Config> = {
-  [K in keyof T]?: ExtractType<T[K]["default"]>;
-} & { list: string[] };
+  [K in keyof T]: ExtractType<T[K]["default"]>;
+} & { list: string[]; help?: boolean };

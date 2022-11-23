@@ -88,9 +88,4 @@ function mclip<C extends Config>(argv: string[], config?: C): Return<C> {
   return options as Return<C>;
 }
 
-const p = mclip([], { verbose: { short: "v" } });
-
-p.list;
-p.verbose;
-
 export { mclip };

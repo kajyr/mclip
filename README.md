@@ -42,6 +42,7 @@ If you use Typescript the type of options returned will be:
 {
   boo: string | boolean | undefined;
   foo: string;
+  help?: boolean;
   list: string[];
   tem: boolean;
 }
