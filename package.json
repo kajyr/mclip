@@ -7,7 +7,7 @@
   "scripts": {
     "test": "jest",
     "test:demo": "./demo.js",
-    "release": "release-it",
+    "release": "npm run build && release-it",
     "build": "tsc -b tsconfig.json",
     "watch": "tsc -b -w tsconfig.json"
   },
