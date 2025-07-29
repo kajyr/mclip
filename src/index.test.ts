@@ -158,3 +158,20 @@ describe("Short flags", () => {
     expect(options.e).toBe("foo");
   });
 });
+
+describe("Validators", () => {
+  test("Failing validation", () => {
+    const args = ["node", "my-cli-script", "--foo=wololo"];
+
+    const config = {
+      foo: {
+        default: "3",
+        validate: (str: string) => !isNaN(Number(str)) && str.trim() !== "",
+      },
+    };
+
+    expect(() => {
+      mclip(args, config);
+    }).toThrow('Invalid value for option "foo": wololo');
+  });
+});

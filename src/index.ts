@@ -84,6 +84,16 @@ function mclip<C extends Config>(argv: string[], config?: C): Return<C> {
     process.exit();
   }
 
+  if (config) {
+    // Validate the options against the config
+    for (const [key, value] of Object.entries(config)) {
+      const { validate } = value;
+      if (validate && !validate(options[key])) {
+        throw new Error(`Invalid value for option "${key}": ${options[key]}`);
+      }
+    }
+  }
+
   // This cast is fishy, I am open to suggestions
   return options as Return<C>;
 }

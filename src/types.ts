@@ -2,6 +2,7 @@ export type ConfigOption = {
   default?: string | boolean;
   description?: string;
   short?: string;
+  validate?: (value: any) => boolean;
 };
 export type Config = Record<string, ConfigOption>;
 

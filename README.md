@@ -64,6 +64,24 @@ const options = mclip(process.argv);
 console.log(options); // { foo: '3', list: [ 'mama', 'lama' ] }
 ```
 
+### Validating parameters
+
+```bash
+./my-script --cat=4
+```
+
+```js
+const { mclip } = require("mclip");
+
+const options = mclip(process.argv, {
+  cat: {
+    validate: (str: string) => str !== "miao",
+  },
+});
+
+// Throws an error
+```
+
 ### Printing usage information
 
 It's possible to define descriptions about the expected parameters; if the script is called with `--help` it will print the usage informations and exit.
