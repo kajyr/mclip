@@ -1,3 +1,17 @@
+# Changelog
+
+# [2.2.0](https://github.com/kajyr/mclip/compare/2.1.1...2.2.0) (2025-07-29)
+
+
+### Bug Fixes
+
+* dependabot config ([75b24dc](https://github.com/kajyr/mclip/commit/75b24dcadf7d49cfade17552f24129733fe13171))
+
+
+### Features
+
+* Validators for values ([e42a1d9](https://github.com/kajyr/mclip/commit/e42a1d9cbcbe20799724a162d8d82193376d167c))
+
 ## [2.1.1](https://github.com/kajyr/mclip/compare/2.1.0...2.1.1) (2022-11-23)
 
 
@@ -81,4 +95,3 @@ much for my liking.
 ### Features
 
 * mclip minimal parsing ([5093877](https://github.com/kajyr/mclip/commit/5093877305101970db958de4de8c32b41c48bec5))
-
