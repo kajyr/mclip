@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.1](https://github.com/kajyr/mclip/compare/2.2.0...2.2.1) (2025-07-29)
+
+
+### Bug Fixes
+
+* added build step before release ([fdd36d1](https://github.com/kajyr/mclip/commit/fdd36d1c13ed22dade6b9adac6a5a540eabaa5c3))
+
 # [2.2.0](https://github.com/kajyr/mclip/compare/2.1.1...2.2.0) (2025-07-29)
 
 
